@@ -1,0 +1,51 @@
+.App
+  text-align center
+  background-color #656C76
+  height 100vh
+  display flex
+  justify-content center
+  align-items center
+
+.container
+  // height 500px
+  background-color whitesmoke
+  width 340px
+  border-radius 1em
+  a
+    text-decoration none
+    color #4BA3FF
+    font-weight bold
+
+*
+  box-sizing border-box
+
+.words
+  h4, p
+    margin 5px
+    text-align left
+    cursor pointer
+  input
+    display block
+
+.border
+  border 1px solid navy
+
+section
+  padding 1em
+  &:not(:last-child)
+    border-bottom 1px solid #ccc
+
+
+img
+  border-radius 1em 1em 0 0
+  object-fit cover
+  object-position center center
+  width 340px
+  height 200px
+
+@keyframes App-logo-spin
+  from
+    transform rotate(0deg)
+
+  to
+    transform rotate(360deg)
