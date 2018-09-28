@@ -11,7 +11,7 @@ export default class EditableText extends Component {
 	handleKeyPress = ({ key }) => key === 'Enter' && this.handleBulr()
 
 	render() {
-		const { display, edit, updateSource } = this.props
+		const { display } = this.props
 		const { isEdit, value } = this.state
 		return (
 			<div>

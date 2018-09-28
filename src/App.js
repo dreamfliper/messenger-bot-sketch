@@ -26,7 +26,7 @@ class App extends Component {
 	extendButton = () => this.onButtonInputChange(Object.keys(this.state.buttons).length)('sample action')
 
 	render() {
-		const { title, description, isEditTitle, EditDescription, buttons } = this.state
+		const { title, description, buttons } = this.state
 		return (
 			<div className="App">
 				<div className="container">
