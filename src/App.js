@@ -7,16 +7,30 @@ class App extends Component {
 	state = {
 		title: 'sample title',
 		description: 'sample description',
-		isEditTitle: false,
-		isEditDescription: false,
+		buttons: {
+			0: 'Start Shopping',
+			1: 'Call Us',
+		},
 	}
 
+	onInputChange = name => value => this.setState({ [name]: value || '*empty*' })
+
+	onButtonInputChange = index => value =>
+		this.setState(({ buttons }) => ({
+			buttons: {
+				...buttons,
+				[index]: value || '*empty*',
+			},
+		}))
+
+	extendButton = () => this.onButtonInputChange(Object.keys(this.state.buttons).length)('sample action')
+
 	render() {
-		const { title, description, isEditTitle, EditDescription } = this.state
+		const { title, description, isEditTitle, EditDescription, buttons } = this.state
 		return (
 			<div className="App">
 				<div className="container">
-					<section style={{ padding: 0 }}>
+					<section className="no-padding">
 						<img
 							src="https://scontent.ftpe7-3.fna.fbcdn.net/v/t1.0-9/17103404_1361159003959079_6638710110679404100_n.jpg?_nc_cat=1&oh=a161427c2271f0697b34fe06e47a0e26&oe=5C5E3DD7"
 							alt="sample"
@@ -26,24 +40,29 @@ class App extends Component {
 						<div className="words">
 							<EditableText
 								display={<h4>{title}</h4>}
-								edit={
-									<input
-										name="title"
-										type="text"
-										value={title}
-										onChange={({ target }) => this.setState({ [target.name]: target.value })}
-										onBlur={() => this.setState({ isEditTitle: false })}
-									/>
-								}
+								value={title}
+								updateSource={this.onInputChange('title')}
 							/>
-							<p name="description">{description}</p>
+							<EditableText
+								display={<p>{description}</p>}
+								value={description}
+								updateSource={this.onInputChange('description')}
+							/>
 						</div>
 					</section>
-					<section>
-						<a href="">Start Shopping</a>
-					</section>
-					<section>
-						<a href="">Call Us</a>
+					{Object.values(buttons).map((text, i) => (
+						<section key={`${text}_${i}`}>
+							<EditableText
+								display={<a>{text}</a>}
+								value={text}
+								updateSource={this.onButtonInputChange(i)}
+							/>
+						</section>
+					))}
+					<section className="no-padding">
+						<button className="add-action" onClick={this.extendButton}>
+							+
+						</button>
 					</section>
 				</div>
 			</div>

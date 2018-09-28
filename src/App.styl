@@ -1,3 +1,6 @@
+*
+  box-sizing border-box
+
 .App
   text-align center
   background-color #656C76
@@ -16,8 +19,8 @@
     color #4BA3FF
     font-weight bold
 
-*
-  box-sizing border-box
+.no-padding
+  padding 0
 
 .words
   h4, p
@@ -35,13 +38,19 @@ section
   &:not(:last-child)
     border-bottom 1px solid #ccc
 
-
 img
   border-radius 1em 1em 0 0
   object-fit cover
   object-position center center
   width 340px
   height 200px
+
+.add-action
+  font-size 1.5em
+  border 0
+  font-weight bold
+  margin-bottom 4px
+  background-color inherit
 
 @keyframes App-logo-spin
   from
