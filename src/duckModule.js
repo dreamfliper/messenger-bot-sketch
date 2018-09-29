@@ -62,7 +62,7 @@ export default (state = initialState, action) => {
 				templates: [...state.templates, nextID],
 				templateDB: {
 					...state.templateDB,
-					[nextID]: JSON.parse(JSON.stringify(defaultTemplate))
+					[nextID]: JSON.parse(JSON.stringify({...defaultTemplate, image_url:''}))
 				}
 			}
 		case DELETE_TEMPLATE:

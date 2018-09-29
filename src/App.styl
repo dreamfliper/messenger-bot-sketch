@@ -1,67 +1,106 @@
+$br = 5px
+$br-img = 1em 1em 0 0
 *
-  box-sizing border-box
+	box-sizing border-box
 
 .App
-  text-align center
-  background-color #656C76
-  height 100vh
-  display flex
-  justify-content center
-  align-items center
+	text-align center
+	background-color #656C76
+	height 100vh
+	display flex
+	justify-content center
+	align-items center
 
 .template-menu
-  position absolute
-  top 10vh
-  background-color whitesmoke
-  border-radius 5px
-  overflow hidden
-  .active
-    color white
-    background-color #3c648e
+	position absolute
+	top 10vh
+	background-color whitesmoke
+	border-radius $br
+	overflow hidden
+	.active
+		color white
+		background-color #3c648e
 
 .container
-  background-color whitesmoke
-  width 340px
-  border-radius 1em
-  a
-    text-decoration none
-    color #4BA3FF
-    font-weight bold
+	background-color whitesmoke
+	width 340px
+	border-radius 1em
+	a
+		text-decoration none
+		color #4BA3FF
+		font-weight bold
+		cursor pointer
+	.image-bg
+		width 340px
+		height 200px
+		display flex
+		justify-content center
+		align-items center
+		flex-direction column
+		background-size cover
+		border-radius $br-img
+		input[type="text"]
+			width 100%
+		label
+			margin-top 1em
+			width 200px
 
 .no-padding
-  padding 0
+	padding 0
 
 .words
-  h4, p
-    margin 5px
-    text-align left
-    cursor pointer
-  input
-    display block
+	h4, p
+		margin 5px
+		text-align left
+		cursor pointer
+	input
+		display block
+		width 100%
 
 .border
-  border 1px solid navy
+	border 1px solid navy
 
 section
-  padding 1em
-  &:not(:last-child)
-    border-bottom 1px solid #ccc
+	padding 1em
+	position relative
+	&:not(:last-child)
+		border-bottom 1px solid #ccc
+	.delete-btn
+		font-weight bold
+		color red
+		background-color transparent
+		position absolute
+		top 0
+		right 0
+		border 0
+		opacity 0
+		transition .2s opacity
+	&:hover
+		.delete-btn
+			opacity 1
 
 img
-  border-radius 1em 1em 0 0
-  object-fit cover
-  object-position center center
-  width 340px
-  height 200px
+	border-radius $br-img 
+	object-fit cover
+	object-position center center
+	width 340px
+	height 200px
 
 .add-action
-  font-size 1.5em
-  border 0
-  font-weight bold
-  margin-bottom 4px
-  background-color inherit
-  
+	font-size 1.5em
+	border 0
+	font-weight bold
+	margin-bottom 4px
+	background-color inherit
+	
 .save
-  border-radius 5px
-  background-color whitesmoke
-  margin 1em .5em
+	border-radius $br
+	background-color whitesmoke
+	margin 1em .5em
+	
+.file-btn
+	@extend .save
+	margin 0
+	input[type="file"]
+		display none
+	
